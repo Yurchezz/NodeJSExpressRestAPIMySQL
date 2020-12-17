@@ -9,7 +9,7 @@ class DBConnection {
             user: process.env.DB_USER,
             password: process.env.DB_PASS,
             database: process.env.DB_DATABASE,
-            socketPath: 'beaming-benefit-293016:europe-west6:db-lab2'
+            //socketPath: 'beaming-benefit-293016:europe-west6:db-lab2'
         });
 
         this.checkConnection();

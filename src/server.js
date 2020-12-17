@@ -2,6 +2,7 @@ const cors = require("cors");
 const HttpException = require('./utils/HttpException.utils');
 const errorMiddleware = require('./middleware/error.middleware');
 const orderRouter = require('./routes/order.route');
+const driverRouter = require('./routes/driver.route');
 const express = require('express');
 const dotenv = require('dotenv');
 
@@ -20,7 +21,7 @@ app.options("*", cors());
 const port = Number(process.env.PORT || 3331);
 
 app.use(`/api/v1/orders`, orderRouter);
-
+app.use('/api/v1/driver_per_order',driverRouter);
 // 404 error
 app.all('*', (req, res, next) => {
     const err = new HttpException(404, 'Endpoint Not Found');
