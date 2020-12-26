@@ -1,5 +1,5 @@
 const HttpException = require('../utils/HttpException.utils');
-const OrderModel = require('../models/order.model');
+const UserModel = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -19,7 +19,7 @@ const auth = (...roles) => {
 
             // Verify Token
             const decoded = jwt.verify(token, secretKey);
-            const user = await OrderModel.findOne({ id: decoded.id_order });
+            const user = await UserModel.findOne({ id: decoded.user_id });
 
             if (!user) {
                 throw new HttpException(401, 'Authentication failed!');

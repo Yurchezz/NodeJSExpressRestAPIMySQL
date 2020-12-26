@@ -22,6 +22,8 @@ const port = Number(process.env.PORT || 3331);
 
 app.use(`/api/v1/orders`, orderRouter);
 app.use('/api/v1/driver_per_order',driverRouter);
+app.use('/api/v1/users',driverRouter);
+
 // 404 error
 app.all('*', (req, res, next) => {
     const err = new HttpException(404, 'Endpoint Not Found');
