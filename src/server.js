@@ -3,6 +3,10 @@ const HttpException = require('./utils/HttpException.utils');
 const errorMiddleware = require('./middleware/error.middleware');
 const orderRouter = require('./routes/order.route');
 const driverRouter = require('./routes/driver.route');
+const fuelRouter = require('./routes/fuel.route');
+const oilRouter = require('./routes/oil.route');
+const wheelPreasureRouter = require('./routes/wheel_preasure.route');
+
 const express = require('express');
 const dotenv = require('dotenv');
 
@@ -23,6 +27,9 @@ const port = Number(process.env.PORT || 3331);
 app.use(`/api/v1/orders`, orderRouter);
 app.use('/api/v1/driver_per_order',driverRouter);
 app.use('/api/v1/users',driverRouter);
+app.use('/api/v1/fuel',fuelRouter);
+app.use('/api/v1/oil',oilRouter);
+app.use('/api/v1/wheel_preasure',wheelPreasureRouter);
 
 // 404 error
 app.all('*', (req, res, next) => {
