@@ -29,11 +29,11 @@ class FuelModel {
         return result[0];
     }
 
-    create = async ({ id_wheel_preasure, left_front, left_back,right_front,right_back,measure_time, longitude, latitude }) => {
+    create = async ({  left_front, left_back,right_front,right_back,measure_time, longitude, latitude }) => {
         const sql = `INSERT INTO ${this.tableName}
-        (id_wheel_preasure, left_front, left_back,right_front,right_back,measure_time, longitude, latitude) VALUES (?,?,?,?,?,?,?,?)`;
+        ( left_front, left_back,right_front,right_back,measure_time, longitude, latitude) VALUES (?,?,?,?,?,?,?)`;
 
-        const result = await query(sql, [id_wheel_preasure, left_front, left_back,right_front,right_back,measure_time, longitude, latitude]);
+        const result = await query(sql, [ left_front, left_back,right_front,right_back,measure_time, longitude, latitude]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;

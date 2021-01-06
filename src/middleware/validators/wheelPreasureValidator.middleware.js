@@ -2,9 +2,6 @@ const { body, check } = require('express-validator');
 
 
 exports.createWheelPreasureSchema = [
-    check('id_wheel_preasure')
-        .exists()
-        .withMessage('id is required'),
     check('left_front')
         .exists()
         .withMessage('left front wheel is required'),
@@ -30,9 +27,6 @@ exports.createWheelPreasureSchema = [
 ];
 
 exports.updateWheelPreasureSchema = [
-    check('id_wheel_preasure')
-        .exists()
-        .withMessage('id is required'),
     check('left_front')
         .exists()
         .withMessage('left front wheel is required'),
@@ -62,7 +56,7 @@ exports.updateWheelPreasureSchema = [
         .withMessage('Please provide required field to update')
         .custom(value => {
             const updates = Object.keys(value);
-            const allowUpdates = ['id_wheel_preasure', 'left_front', 'right_front','left_back','right_back','measure_time', 'longitude', 'latitude'];
+            const allowUpdates = ['left_front', 'right_front','left_back','right_back','measure_time', 'longitude', 'latitude'];
             return updates.every(update => allowUpdates.includes(update));
         })
         .withMessage('Invalid updates!')

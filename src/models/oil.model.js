@@ -29,11 +29,11 @@ class OilModel {
         return result[0];
     }
 
-    create = async ({ id_oil_level, level, measure_time, longitude, latitude }) => {
+    create = async ({ level, measure_time, longitude, latitude }) => {
         const sql = `INSERT INTO ${this.tableName}
-        (id_oil_level, level, measure_time, longitude, latitude) VALUES (?,?,?,?,?)`;
+        (level, measure_time, longitude, latitude) VALUES (?,?,?,?)`;
 
-        const result = await query(sql, [id_oil_level, level, measure_time, longitude, latitude]);
+        const result = await query(sql, [level, measure_time, longitude, latitude]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;
